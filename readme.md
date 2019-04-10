@@ -35,16 +35,16 @@ Run command on Terminal: ``php artisan serve``
 Request (POST) Endpoint: **http://localhost:8000/api/article**
 Headers: **Content-Type - application/json**
 Request Body (raw): 
-``
+```
 { 
     "name" : "Article PotX", 
     "publisher_id" : 23, 
     "state_id" : 1, 
     "category_id" : 3 
 }
-`` 
+```
 Will generate a response:
-`` 
+```
 {
     "version": "1.0.0",
     "datetime": "2019-04-10 11:04:30",
@@ -59,7 +59,7 @@ Will generate a response:
         "id": 114
     }
 }
-``
+```
 
 ## Example Article update (ex. id - 25)
 
