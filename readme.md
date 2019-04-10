@@ -32,9 +32,9 @@ Base API URL : http://localhost/newspaper/api/
 
 Run command on Terminal: ``php artisan serve`` 
 
-Request (POST) Endpoint: **http://localhost:8000/api/article**
-Headers: **Content-Type - application/json**
-Request Body (raw): 
+- Request (POST) Endpoint: **http://localhost:8000/api/article**
+- Headers: **Content-Type - application/json**
+- Request Body (raw): 
 ```
 { 
     "name" : "Article PotX", 
@@ -65,9 +65,9 @@ Will generate a response:
 
 Run command on Terminal: ``php artisan serve`` 
 
-Request (PUT) Endpoint: **http://localhost:8000/api/article/25**
-Headers: **Content-Type - application/json**
-Request Body (raw): 
+- Request (PUT) Endpoint: **http://localhost:8000/api/article/25**~
+- Headers: **Content-Type - application/json**
+- Request Body (raw): 
 ```
 { 
     "name" : "Article DEF", 
