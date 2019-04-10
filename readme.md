@@ -68,16 +68,16 @@ Run command on Terminal: ``php artisan serve``
 Request (PUT) Endpoint: **http://localhost:8000/api/article/25**
 Headers: **Content-Type - application/json**
 Request Body (raw): 
-``
+```
 { 
     "name" : "Article DEF", 
     "publisher_id" : 23, 
     "state_id" : 1, 
     "category_id" : 3 
 }
-`` 
+```
 Will generate a response:
-`` 
+```
 {
     "version": "1.0.0",
     "datetime": "2019-04-10 11:04:02",
@@ -97,4 +97,4 @@ Will generate a response:
         "deleted_at": null
     }
 }
-``
+```
