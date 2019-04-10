@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Log;
 class Article extends AppModel
 {
     protected $table = 'article';
-
+    protected $fillable = ['publisher_id', 'category_id', 'state_id', 'name', 'title', 'description', 'url', 'publishDate', 'deleted_at']; 
 
     /**
      * Filter articles by each field

@@ -48,12 +48,29 @@ class ArticleService implements NewsService
 
     public function save(Array $data)
     {
-
+        $article = Article::create($data);
+        $response =  ['success' => false, 'article' => null];
+        
+        if ($article == null || !$article->exists()) {
+            return $response;
+        }
+        $response['success'] = true;
+        $response['article'] = $article;
+        return $response;
     }
 
     public function update(Array $data)
     {
+        $response = ['article' => null, 'success' => false];
+        $success = Article::active()->where('id', $data['id'])
+                                    ->update($data);
+        
+        if ($success) {
+            $response['success'] = true;
+            $response['article'] = Article::active()->find($data['id']);
+        }
 
+        return $response;
     }
     
     public function delete(Int $id)

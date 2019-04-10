@@ -7,65 +7,94 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## About Repository
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+This is a Newspaper repository, with some REST API features and a simple search page. The page was created just to serve as a test for the endpoints for the API.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Search Page
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+While running on a local Apache server, the search page can be found in:
 
-## Learning Laravel
+- http://localhost/newspaper/public/news
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost you and your team's skills by digging into our comprehensive video library.
+## Endpoints
 
-## Laravel Sponsors
+Base API URL : http://localhost/newspaper/api/
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- Get article subscribers: articles/{id}/subscribers
+- Get article categories: articles/categories
+- Get article by id: articles/{id}
+- Get all articles: articles
+- Post article: articles/{id}
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
+## Example Article creation
 
-## Contributing
+Run command on Terminal: ``php artisan serve`` 
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Request (POST) Endpoint: **http://localhost:8000/api/article**
+Headers: **Content-Type - application/json**
+Request Body (raw): 
+``
+{ 
+    "name" : "Article PotX", 
+    "publisher_id" : 23, 
+    "state_id" : 1, 
+    "category_id" : 3 
+}
+`` 
+Will generate a response:
+`` 
+{
+    "version": "1.0.0",
+    "datetime": "2019-04-10 11:04:30",
+    "success": true,
+    "data": {
+        "name": "Article ABC",
+        "publisher_id": 23,
+        "state_id": 1,
+        "category_id": 3,
+        "updated_at": "2019-04-10 23:47:30",
+        "created_at": "2019-04-10 23:47:30",
+        "id": 114
+    }
+}
+``
 
-## Security Vulnerabilities
+## Example Article update (ex. id - 25)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Run command on Terminal: ``php artisan serve`` 
 
-## License
-
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Request (PUT) Endpoint: **http://localhost:8000/api/article/25**
+Headers: **Content-Type - application/json**
+Request Body (raw): 
+``
+{ 
+    "name" : "Article DEF", 
+    "publisher_id" : 23, 
+    "state_id" : 1, 
+    "category_id" : 3 
+}
+`` 
+Will generate a response:
+`` 
+{
+    "version": "1.0.0",
+    "datetime": "2019-04-10 11:04:02",
+    "success": true,
+    "data": {
+        "id": 25,
+        "publisher_id": 23,
+        "category_id": 3,
+        "state_id": 1,
+        "name": "Article DEF",
+        "title": "dapibus gravida. Aliquam",
+        "description": "tincidunt congue turpis. In condimentum. Donec at arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec tincidunt. Donec vitae erat vel pede blandit congue. In scelerisque scelerisque dui. Suspendisse ac metus vitae velit egestas lacinia. Sed congue, elit sed consequat auctor, nunc nulla vulputate dui, nec tempus mauris erat eget ipsum. Suspendisse sagittis. Nullam vitae diam. Proin dolor. Nulla semper tellus id nunc interdum feugiat. Sed nec metus facilisis lorem tristique aliquet. Phasellus fermentum convallis ligula. Donec luctus aliquet odio. Etiam ligula tortor, dictum eu, placerat eget, venenatis a, magna. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat vitae risus. Duis a mi fringilla mi lacinia mattis. Integer eu lacus. Quisque imperdiet, erat nonummy ultricies ornare, elit elit fermentum risus, at fringilla purus mauris a nunc. In at pede. Cras vulputate velit eu sem. Pellentesque ut ipsum ac mi eleifend egestas. Sed pharetra, felis eget varius ultrices, mauris ipsum porta elit, a feugiat tellus lorem eu metus. In lorem. Donec elementum, lorem ut aliquam iaculis, lacus pede sagittis augue, eu tempor erat neque non quam. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam fringilla cursus purus. Nullam scelerisque neque sed sem egestas blandit. Nam nulla magna, malesuada vel, convallis in, cursus et, eros. Proin ultrices. Duis",
+        "url": "https://loremflickr.com/320/240?random=25",
+        "publishDate": "2020-01-25 04:52:12",
+        "created_at": "2019-04-11 00:50:02",
+        "updated_at": "2019-04-10 23:50:02",
+        "deleted_at": null
+    }
+}
+``

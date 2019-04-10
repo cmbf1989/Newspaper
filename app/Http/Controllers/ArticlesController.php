@@ -78,8 +78,33 @@ class ArticlesController extends AppController
         return $this->successResponse($subscribers);
     }
 
+    /**
+     * Creates article
+     */
     public function createArticle(Request $request)
     {
+        $serviceResponse = $this->service->save($request->all());
 
+        if ($serviceResponse['success']) {
+            return $this->successResponse($serviceResponse['article']->toArray());
+        }
+
+        return $this->errorResponse("Article could not be saved.");
+    }
+
+    /**
+     * Updates article
+     */
+    public function updateArticle(Request $request,Int $id)
+    {
+        $filters = $request->all();
+        $filters['id'] = $id;
+        $serviceResponse = $this->service->update($filters);
+
+        if ($serviceResponse['success']) {
+            return $this->successResponse($serviceResponse['article']->toArray());
+        }
+
+        return $this->errorResponse("Article could not be updated.");
     }
 }
