@@ -17,6 +17,9 @@ While running on a local Apache server, the search page can be found in:
 
 - http://localhost/newspaper/public/news
 
+## Importing Existing News Database
+
+On project root search for: **database.sql**
 
 ## Endpoints
 
