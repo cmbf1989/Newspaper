@@ -66,7 +66,7 @@ Will generate a response:
 
 Run command on Terminal: ``php artisan serve`` 
 
-- **Address** (*PUT*): **http://localhost:8000/api/article/25**~
+- **Address** (*PUT*): **http://localhost:8000/api/article/25**
 - **Headers**: *Content-Type - application/json*
 - **Request Body** (raw): 
 ```
