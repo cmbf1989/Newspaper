@@ -22,19 +22,20 @@ While running on a local Apache server, the search page can be found in:
 
 Base API URL : http://localhost/newspaper/api/
 
-- Get article subscribers: articles/{id}/subscribers
-- Get article categories: articles/categories
-- Get article by id: articles/{id}
-- Get all articles: articles
-- Post article: articles/{id}
+- GET **article subscribers**: *articles/{id}/subscribers*
+- GET **article categories**: *articles/categories*
+- GET **article by id**: *articles/{id}*
+- GET **all articles**: *articles*
+- POST **create article**: *articles/{id}*
+- PUT **create article**: *articles/{id}*
 
 ## Example Article creation
 
 Run command on Terminal: ``php artisan serve`` 
 
-- Request (POST) Endpoint: **http://localhost:8000/api/article**
-- Headers: **Content-Type - application/json**
-- Request Body (raw): 
+- **Address** (POST): **http://localhost:8000/api/article**
+- **Headers**: *Content-Type - application/json*
+- **Request Body** (raw): 
 ```
 { 
     "name" : "Article PotX", 
@@ -65,9 +66,9 @@ Will generate a response:
 
 Run command on Terminal: ``php artisan serve`` 
 
-- Request (PUT) Endpoint: **http://localhost:8000/api/article/25**~
-- Headers: **Content-Type - application/json**
-- Request Body (raw): 
+- **Address** (PUT): **http://localhost:8000/api/article/25**~
+- **Headers**: *Content-Type - application/json*
+- **Request Body** (raw): 
 ```
 { 
     "name" : "Article DEF", 
